@@ -25,8 +25,8 @@
     Pusher.logToConsole = true;
 
     var pusher = new Pusher('dff85a9b2c9686275a8b', {
-        cluster: 'us2'
-        // encrypted: true
+        cluster: 'us2',
+        encrypted: true
     });
 
     var channel = pusher.subscribe('my-channel');

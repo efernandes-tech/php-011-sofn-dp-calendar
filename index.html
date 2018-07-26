@@ -37,7 +37,7 @@
             selectable: true,
             selectHelper: true,
             // Iniciar com dados carregados.
-            events: "http://localhost:1337/php/listar_compromissos.php",
+            events: "https://php-011-sofn-dp-calendar.herokuapp.com/php/listar_compromissos.php",
             // Limitando horas exibidas.
             minTime: "08:00:00",
             maxTime: "19:00:00",
@@ -64,7 +64,7 @@
                 };
 
                 // Envia os dados para o PHP.
-                $.post("http://localhost:1337/php/salvar_compromisso.php", dados, function(response) {
+                $.post("https://php-011-sofn-dp-calendar.herokuapp.com/php/salvar_compromisso.php", dados, function(response) {
                     if (response.status == 'success') {
                         var agendamento = {
                             title: response.title,

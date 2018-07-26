@@ -33,8 +33,8 @@ if (!empty($nome) && !empty($inicio) && !empty($fim)) {
         $retorno['end'] = $fim;
 
         $options = [
-            'cluster' => 'us2'
-            // 'encrypted' => true
+            'cluster' => 'us2',
+            'encrypted' => true
         ];
 
         $pusher = new Pusher\Pusher(
