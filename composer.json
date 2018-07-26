@@ -1,0 +1,12 @@
+{
+    "name": "ederson.fernandes/php-011-sofn-dp-calendar",
+    "authors": [
+        {
+            "name": "Éderson Fernandes",
+            "email": "edersonluis.rf@gmail.com"
+        }
+    ],
+    "require": {
+        "pusher/pusher-php-server": "^3.1"
+    }
+}

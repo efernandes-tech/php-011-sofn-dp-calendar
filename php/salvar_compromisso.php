@@ -2,7 +2,7 @@
 
 header('Content-Type: application/json');
 
-// require "../vendor/autoload.php";
+require "../vendor/autoload.php";
 
 require 'conexao.php';
 
@@ -32,15 +32,15 @@ if (!empty($nome) && !empty($inicio) && !empty($fim)) {
         $retorno['start'] = $inicio;
         $retorno['end'] = $fim;
 
-        /*$options = [
+        $options = [
             'cluster' => 'us2'
-           // 'encrypted' => true
+            // 'encrypted' => true
         ];
 
         $pusher = new Pusher\Pusher(
-            '754e61bbd35b46f18454',
-            'fe0ca40f2a1d56147ae9',
-            '547548',
+            'dff85a9b2c9686275a8b',
+            '436749a9225746a643ba',
+            '567265',
             $options
         );
 
@@ -48,8 +48,7 @@ if (!empty($nome) && !empty($inicio) && !empty($fim)) {
         $response['dia'] = date("d/m/Y", strtotime($inicio));
         $response['hora'] = date("H:i", strtotime($inicio));
 
-        $pusher->trigger('my-channel', 'my-event', $response);*/
-
+        $pusher->trigger('my-channel', 'my-event', $response);
     } else {
         $retorno['status'] = 'fail';
         $retorno['mensagem'] = 'Ocorreu algum erro ao gravar compromisso.';
