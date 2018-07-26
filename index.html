@@ -25,10 +25,50 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $("#agenda").fullCalendar({
+            // Cabeçalho.
             header: {
                 left: "prev,today,next",
                 center: "title",
                 right: "month,agendaWeek,agendaDay"
+            },
+            // Tela inicial padrão.
+            defaultView: "agendaWeek",
+            // Disponibiliza e formata a seleção de campos.
+            selectable: true,
+            selectHelper: true,
+            // Dispara no evento de selecionar o campo.
+            select: function(start, end) {
+                // Formata data usando o "Moment.js".
+                var inicio = moment(start).format("YYYY-MM-DD HH:mm");
+                var fim = moment(end).format("YYYY-MM-DD HH:mm");
+
+                // Coleta o dado.
+                var nome = window.prompt("Digite o nome do paciente:");
+
+                // Prepara o objeto.
+                var dados = {
+                    nome: nome,
+                    inicio: inicio,
+                    fim: fim
+                };
+
+                // Envia os dados para o PHP.
+                $.post("http://localhost:1337/php/salvar_compromisso.php", dados, function(response) {
+                    if (response.status == 'success') {
+                        var agendamento = {
+                            title: response.title,
+                            start: response.start,
+                            end: response.end
+                        };
+
+                        // Depois de salvar renderiza o novo dado na tela.
+                        $("#agenda").fullCalendar('renderEvent', agendamento, true);
+
+                        alert(response.mensagem);
+                    } else {
+                        alert(response.mensagem);
+                    }
+                }, 'json');
             }
         });
     });
