@@ -36,6 +36,17 @@
             // Disponibiliza e formata a seleção de campos.
             selectable: true,
             selectHelper: true,
+            // Iniciar com dados carregados.
+            events: "http://localhost:1337/php/listar_compromissos.php",
+            // Limitando horas exibidas.
+            minTime: "08:00:00",
+            maxTime: "19:00:00",
+            // Contador de tempo de 10 em 10.
+            slotDuration: '00:10:00',
+            // Formatando a label de horas.
+            slotLabelFormat: "HH:mm",
+            // Não permitir lembretes do dia inteiro.
+            allDaySlot: false,
             // Dispara no evento de selecionar o campo.
             select: function(start, end) {
                 // Formata data usando o "Moment.js".
